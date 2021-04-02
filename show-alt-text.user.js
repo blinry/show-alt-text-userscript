@@ -59,7 +59,7 @@ function addAltTags() {
     var overlay = document.createElement('div')
     overlay.classList.add('alt-text-box')
 
-    let altText = img.alt ? img.alt : (img.title ? img.title : '')
+    let altText = img.alt || img.getAttribute("aria-label") || img.title || img.parentElement.getAttribute("aria-label") || ''
     // The latter two options occur on Twitter.
     if (altText == '' || altText == 'Image' || altText == 'Embedded video') {
       overlay.style.background = red
